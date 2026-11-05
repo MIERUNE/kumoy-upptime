@@ -5,6 +5,19 @@ repo: kumoy-upptime # The name of this repository
 sites:
   - name: Kumoy Website
     url: https://kumoy.io
+  # CloudFront → フロントエンド（SvelteKit）
+  - name: Kumoy App
+    url: https://app.kumoy.io
+  # CloudFront(/api/*, キャッシュ無し) → ALB → backend。Better Authの疎通確認用エンドポイントで、AuditLog/AuthLogに載らない
+  - name: Kumoy API
+    url: https://app.kumoy.io/api/auth/ok
+  - name: Kumoy Docs
+    url: https://docs.kumoy.io
+  # サンプルプロジェクトの背景地図。Refererが必要
+  - name: Kumoy Map Tiles
+    url: https://maptiles.kumoy.io/latest/streets/raster/512/0/0/0
+    headers:
+      - "Referer: https://app.kumoy.io/"
 
 status-website:
   # Add your custom domain name, or remove the `cname` line if you don't have a domain
